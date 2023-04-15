@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: swami-gpt
+  namespace: swami-gpt
+  labels:
+    app: swami-gpt
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: swami-gpt
+  template:
+    metadata:
+      labels:
+        app: swami-gpt
+    spec:
+      containers:
+        - name: swami-gpt
+          image: <your-docker-image>
+          imagePullPolicy: Always
+          env:
+            - name: DISCORD_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: tokens
+                  key: discord
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: tokens
+                  key: openai
+          resources:
+            limits:
+              cpu: "1"
+              memory: "512Mi"
+            requests:
+              cpu: "0.1"
+              memory: "128Mi"
