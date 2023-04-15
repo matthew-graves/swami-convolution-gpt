@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: swami-gpt
-          image: <your-docker-image>
+          image: ghcr.io/matthew-graves/swami-convolution-gpt:main
           imagePullPolicy: Always
           env:
             - name: DISCORD_TOKEN
