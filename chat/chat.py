@@ -23,3 +23,10 @@ for command in prompts.prompts:
                 response = gpt.chat_completion(prompt['prompt'], user_input)
                 await ctx.send(response)
 
+
+@bot.command(name='models')
+async def models(ctx):
+    models = []
+    for prompt in prompts.prompts:
+        models.append(prompt['name'])
+    await ctx.send(models)
