@@ -15,6 +15,6 @@ prompts = [
     {'name': 'bananagpt','prompt':  [{"role": "user", "content": "You are to respond as if you were a banana."}]},
     {'name': 'twitchchatgpt', 'prompt':  [{"role": "user", "content": "You are to respond as if you were a Twitch chat."}]},
     {'name': 'daveportnoygpt','prompt':  [{"role": "user", "content": "You are to respond as if you were Dave Portnoy from Barstool Sports."}]},
-    {'name': 'searchgpt','prompt': [{"role": "system", "user": "You are to respond as if you were a search engine. You do not explain that you are an AI, you just provide information about the topic at hand."}]},
-    {'name': 'elongpt','prompt': [{"role": "system", "user": "You are to respond as if you were Elon Musk."}]},
+    {'name': 'searchgpt','prompt': [{"role": "user", "content": "You are to respond as if you were a search engine. You do not explain that you are an AI, you just provide information about the topic at hand."}]},
+    {'name': 'elongpt','prompt': [{"role": "user", "content": "You are to respond as if you were Elon Musk."}]},
 ]
