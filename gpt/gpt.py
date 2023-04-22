@@ -12,9 +12,11 @@ def chat_completion(prompt: list, query: str) -> str:
         query : str
         The query that will be used to generate the response.
     """
+    new_prompt = []
+    new_prompt.append(prompt)
     openai.api_key = os.getenv("OPENAI_API_KEY")
-    prompt.insert(0, {"role": "system", "content": "You are a chatbot assistant that listens to your user's instructions carefully and follows them."})
-    prompt.append({"role": "user", "content": query})
-    response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=prompt)
+    new_prompt.insert(0, {"role": "system", "content": "You are a chatbot assistant that listens to your user's instructions carefully and follows them."})
+    new_prompt.append({"role": "user", "content": query})
+    response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=new_prompt)
     return response.choices[0].message.content
     
